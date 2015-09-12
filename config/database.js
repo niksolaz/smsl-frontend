@@ -9,9 +9,9 @@ module.exports = {
 // grab the things we need
 var mongoose = require('mongoose');
 
-var mongoAddress = process.env.MONGO_ADDRESS; // e.g. 127.0.0.1
-var mongoAddressPort = process.env.MONGO_ADDRESS_PORT || 27017; // e.g. 27017
-var mongoColletion = process.env.MONGO_COLLECTION; // e.g. msgGlobal/msgs
+var mongoAddress = process.env.MONGO_ADDRESS_SMSL_FRONTEND; // e.g. 127.0.0.1
+var mongoAddressPort = process.env.MONGO_ADDRESS_PORT_SMSL_FRONTEND || 27017; // e.g. 27017
+var mongoColletion = process.env.MONGO_COLLECTION_SMSL_FRONTEND; // e.g. msgGlobal/msgs
 var mongoAddressScheme = "mongodb://";
 var mongoURI = mongoAddressScheme + mongoAddress + ":" + mongoAddressPort + "/" + mongoColletion;
 
