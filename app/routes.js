@@ -6,8 +6,16 @@ module.exports = function(app,passport){
 		res.render('index.ejs'); //load index.ejs file in views
 	});
 	//route for Login form
+	app.get('/login', function(req, res) {
+        // render the page and pass in any flash data if it exists
+        res.render('login.ejs', { message: req.flash('loginMessage') }); 
+    });
     //route for Processing the login form
     //route for Signup form
+    app.get('/signup', function(req, res) {
+        // render the page and pass in any flash data if it exists
+        res.render('signup.ejs', { message: req.flash('signupMessage') });
+    });
     //route for processing the signup form
 
     //route for showing the profile page
