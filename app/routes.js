@@ -1,5 +1,4 @@
 // app/routes.js
-
 module.exports = function(app,passport){
 	//route for Home page
 	app.get('/',function(req,res){
