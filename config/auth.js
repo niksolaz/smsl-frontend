@@ -10,8 +10,8 @@ module.exports = {
         'consumerSecret'    : process.env.MAT_TWITTER_CONSUMER_SECRET
         'callbackURL'       : process.env.MAT_TWITTER_CALLBACK_URL
 	},'googleAuth':{
-		'clientID'      : 'your-secret-clientID-here',
-        'clientSecret'  : 'your-client-secret-here',
-        'callbackURL'   : 'http://localhost:8080/auth/google/callback'
+		'clientID'      : process.env.MAT_GOOGLE_CLIENT_ID,
+        'clientSecret'  : process.env.MAT_GOOGLE_CLIENT_SECRET,
+        'callbackURL'   : process.env.MAT_GOOGLE_URL
 	}
 };
