@@ -1,5 +1,5 @@
 // server.js
-
+module.exports = function(server){
 // set up ======================================================================
 // get all the tools we need
 var express  = require('express');
@@ -42,7 +42,7 @@ require('./app/routes.js')(app, passport); // load our routes and pass in our ap
 app.listen(port);
 console.log('The magic happens on port ' + port);
 
-module exports = server.js;
+}
 
 
 

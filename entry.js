@@ -1,1 +1,2 @@
-require('./server.js'); 
+document.write(require('./content.js'));
+
