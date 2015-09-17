@@ -7,9 +7,6 @@ var mongoColletion = process.env.MONGO_COLLECTION_SMSL_FRONTEND; // e.g. smsl_fr
 var mongoAddressScheme = "mongodb://";
 var mongoURI = mongoAddressScheme + mongoAddress + ":" + mongoAddressPort + "/" + mongoColletion;
 
-console.log("Connecting to MongoDB at the uri: ", mongoURI);
-mongoose.connect(mongoURI);
-
 module.exports = {
 	// looks example like mongodb://<user>:<pass>@mongo.onmodulus.net:27017/Mikha4ot
     'url' : mongoURI
