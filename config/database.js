@@ -10,5 +10,5 @@ var mongoURI = mongoAddressScheme + mongoAddress + ":" + mongoAddressPort + "/" 
 module.exports = {
 	// looks example like mongodb://<user>:<pass>@mongo.onmodulus.net:27017/Mikha4ot
     'url' : mongoURI
-
+    
 };
