@@ -32,7 +32,7 @@ app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
 app.use(session({ 
-				secret: process.env.SECRET_MODULUS,
+				secret: process.env.SECRET_FRONTEND,
 				resave: true,
     			saveUninitialized: true })); // session secret
 app.use(passport.initialize());
@@ -43,7 +43,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 // launch ======================================================================
-app.listen(port);
+app.listen(process.env.IP, process.env.PORT);
 console.log('The magic happens on port ' + port);
 
 
