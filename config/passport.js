@@ -121,8 +121,9 @@ module.exports = function(passport) {
         // pull in our app id and secret from our auth.js file
         clientID        : configAuth.facebookAuth.clientID,
         clientSecret    : configAuth.facebookAuth.clientSecret,
-        callbackURL     : configAuth.facebookAuth.callbackURL
-
+        callbackURL     : configAuth.facebookAuth.callbackURL,
+        // Requiring particular fields from the Facebook Graph Search
+        profileFields: ['id', 'last_name', 'first_name', 'middle_name', 'displayName', 'email', 'gender', 'link']
     },
 
     // facebook will send back the token and profile
