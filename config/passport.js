@@ -225,6 +225,7 @@ module.exports = function(passport) {
         clientSecret    : configAuth.googleAuth.clientSecret,
         callbackURL     : configAuth.googleAuth.callbackURL,
         passReqToCallback: true,
+        profileFields: ['id', 'last_name', 'first_name', 'middle_name', 'displayName', 'email', 'gender', 'link']
         
     },
     function(token, refreshToken, profile, done) {
