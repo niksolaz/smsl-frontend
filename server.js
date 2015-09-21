@@ -34,9 +34,7 @@ app.set('view engine', 'ejs'); // set up ejs for templating
 app.use(session({ 
 				secret: process.env.SECRET_FRONTEND,
 				resave: true,
-    			saveUninitialized: true,
-    			key:'sid',
-    			cookie:{ secure: true } })); // session secret
+    			saveUninitialized: true })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
