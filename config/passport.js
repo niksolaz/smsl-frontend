@@ -230,6 +230,19 @@ module.exports = function(passport) {
 
                     // if the user is found then log them in
                     if (user) {
+                        // if there is a user id already but no token (user was linked at one point and then removed)
+                        // just add our token and profile information
+                        if (!user.twitter.token) {
+                            user.twitter.token = token;
+                            user.twitter.username  = profile.username;
+                            user.twitter.displayName = profile.displayName;
+
+                            user.save(function(err) {
+                                if (err)
+                                    throw err;
+                                return done(null, user);
+                            });
+                        }
                         return done(null, user); // user found, return that user
                     } else {
                         // if there is no user, create them
@@ -297,7 +310,19 @@ module.exports = function(passport) {
                         return done(err);
 
                     if (user) {
+                        // if there is a user id already but no token (user was linked at one point and then removed)
+                        // just add our token and profile information
+                        if (!user.google.token) {
+                            user.google.token = token;
+                            user.google.name  = profile.displayName;
+                            user.google.email = profile.emails[0].value;
 
+                            user.save(function(err) {
+                                if (err)
+                                    throw err;
+                                return done(null, user);
+                            });
+                        }
                         // if a user is found, log them in
                         return done(null, user);
                     } else {
