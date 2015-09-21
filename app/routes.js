@@ -80,7 +80,7 @@ module.exports = function(app, passport) {
     // google ---------------------------------
 
         // send to google to do the authentication
-        app.get('/auth/google', passport.authenticate('google', { scope : ['email'] }));
+        app.get('/auth/google', passport.authenticate('google', { scope : 'https://www.googleapis.com/auth/plus.login' }));
 
         // the callback after google has authenticated the user
         app.get('/auth/google/callback',
