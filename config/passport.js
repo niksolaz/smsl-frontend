@@ -225,7 +225,7 @@ module.exports = function(passport) {
         clientSecret    : configAuth.googleAuth.clientSecret,
         callbackURL     : configAuth.googleAuth.callbackURL,
         passReqToCallback: true,
-        profileFields: ['id', 'last_name', 'first_name', 'middle_name', 'displayName', 'email', 'gender', 'link']
+        profileFields: ['id', 'displayName', 'email']
     },
     function(token, refreshToken, profile, done) {
 
@@ -234,13 +234,12 @@ module.exports = function(passport) {
         process.nextTick(function() {
 
             // try to find the user based on their google id
-            User.findOne({ 'google.id' : profile }, function(err, user) {
+            User.findOrCreate({ 'google.id': profile.id }, function(err, user) {
                 if (err)
                     console.log(err)
                     return done(err);
 
                 if (user) {
-                    console.log(user);
                     // if a user is found, log them in
                     return done(null, user);
                 } else {
