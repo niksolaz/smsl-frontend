@@ -232,7 +232,6 @@ module.exports = function(passport) {
         // make the code asynchronous
         // User.findOne won't fire until we have all our data back from Google
         process.nextTick(function() {
-
             // try to find the user based on their google id
             User.findOrCreate({ 'google.id': profile.id }, function(err, user) {
                 if (err)
@@ -241,7 +240,7 @@ module.exports = function(passport) {
 
                 if (user) {
                     // if a user is found, log them in
-                    console.log(profile);
+                    console.log(token,profile);
                     return done(null, user);
                 } else {
                     // if the user isnt in our database, create a new user
