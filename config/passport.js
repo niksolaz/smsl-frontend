@@ -224,23 +224,22 @@ module.exports = function(passport) {
         clientID        : configAuth.googleAuth.clientID,
         clientSecret    : configAuth.googleAuth.clientSecret,
         callbackURL     : configAuth.googleAuth.callbackURL,
-        passReqToCallback: true,
-        profileFields: ['id', 'last_name', 'first_name', 'middle_name', 'displayName', 'email', 'gender', 'link']
-        
+
     },
     function(token, refreshToken, profile, done) {
+
         // make the code asynchronous
         // User.findOne won't fire until we have all our data back from Google
         process.nextTick(function() {
+
             // try to find the user based on their google id
-            User.findOrCreate({ 'google.id': profile.id }, function(err, user) {
+            User.findOne({ 'google.id' : profile.id }, function(err, user) {
                 if (err)
-                    console.log(err)
                     return done(err);
 
                 if (user) {
+
                     // if a user is found, log them in
-                    console.log(token,profile);
                     return done(null, user);
                 } else {
                     // if the user isnt in our database, create a new user
