@@ -28,5 +28,5 @@ module.exports = function(passport) {
     });
     
     passportAuthentication(passport, configAuth, User);
-    
+
 };
